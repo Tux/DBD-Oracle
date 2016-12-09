@@ -9,6 +9,8 @@ Revision history for DBD::Oracle
   Ignore constraints which are not enabled in primary/foreign key_info
   (GH#23, Martin J. Evans)
 
+  Make primary_key_info be case-insensative on $schema and $table (H.Merijn Brand)
+
 1.75_2    2014-11-19
 
   [ENHANCEMENT]

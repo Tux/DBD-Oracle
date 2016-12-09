@@ -537,13 +537,13 @@ SELECT *
      AND p.CONSTRAINT_TYPE = 'P'
      AND p.STATUS = 'ENABLED'
 )
- WHERE TABLE_SCHEM = ?
-   AND TABLE_NAME  = ?
+ WHERE UPPER(TABLE_SCHEM) = ?
+   AND UPPER(TABLE_NAME)  = ?
  ORDER BY TABLE_SCHEM, TABLE_NAME, KEY_SEQ
 SQL
 #warn "@_\n$Sql ($schema, $table)";
 	my $sth = $dbh->prepare($SQL) or return undef;
-	$sth->execute($schema, $table) or return undef;
+	$sth->execute(uc $schema, uc $table) or return undef;
 	$sth;
 }
 

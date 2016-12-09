@@ -91,7 +91,7 @@ if (0) {
 
 
 # $dbh->{USER} is just there so it works for old DBI's before Username was added
-my @pk = $dbh->primary_key(undef, $dbh->{USER}||$dbh->{Username}, uc $table);
+my @pk = $dbh->primary_key(undef, $dbh->{USER}||$dbh->{Username}, $table);
 ok(@pk, 'primary key on table');
 is(join(",",@pk), 'DT,IDX', 'DT,IDX');
 
